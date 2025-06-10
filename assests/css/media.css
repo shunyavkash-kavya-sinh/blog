@@ -1,0 +1,34 @@
+@media only screen and (max-width: 1024px) {
+  .blog-wrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .blog-card2 {
+    grid-column: 2/2;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .blog-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 557px) {
+  .blog-wrap {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .blog-card2 {
+    grid-column: 2/1;
+  }
+
+  .blog-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .blog-sec {
+    padding-block: 50px;
+  }
+}
