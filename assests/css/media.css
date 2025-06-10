@@ -6,11 +6,19 @@
   .blog-card2 {
     grid-column: 2/2;
   }
+
+  .blog-categories-wrap {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .blog-wrap {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .blog-categories-wrap {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -30,5 +38,9 @@
 
   .blog-sec {
     padding-block: 50px;
+  }
+
+  .blog-categories-wrap {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
