@@ -911,38 +911,57 @@
         src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.4.2/dist/js/splide-extension-auto-scroll.min.js"></script>
 
     <script>
-        if (document.querySelector('.scroller-slider')) {
-            const scrollerSlider = new Splide('.scroller-slider', {
-                type: 'loop',
-                drag: 'free',
-                focus: 'center',
-                perPage: 7,
-                gap: "15px",
-                arrows: false,
-                pagination: false,
-                autoScroll: false,
-                breakpoints: {
-                    1024: {
-                        autoScroll: {
-                            speed: 1,
-                        },
-                        perPage: 5,
-                        gap: "20px",
-                    },
-                    768: {
-                        perPage: 4,
-                    },
-                    557: {
-                        perPage: 3,
-                    },
-                    375: {
-                        perPage: 2,
-                    },
-                },
-            });
+        let scrollerSlider;
 
-            scrollerSlider.mount({ AutoScroll: window.splide.Extensions.AutoScroll });
+        function initSplide() {
+            const sliderElement = document.querySelector('.scroller-slider');
+
+            if (sliderElement) {
+                if (scrollerSlider && scrollerSlider.destroy) {
+                    scrollerSlider.destroy(true);
+                }
+
+                scrollerSlider = new Splide(sliderElement, {
+                    type: 'loop',
+                    drag: 'free',
+                    focus: 'center',
+                    perPage: 7,
+                    gap: "15px",
+                    arrows: false,
+                    pagination: false,
+                    autoScroll: {
+                        speed: 1,
+                    },
+                    breakpoints: {
+                        1024: {
+                            perPage: 5,
+                            gap: "20px",
+                        },
+                        768: {
+                            perPage: 4,
+                        },
+                        557: {
+                            perPage: 3,
+                        },
+                        375: {
+                            perPage: 2,
+                        },
+                    },
+                });
+
+                scrollerSlider.mount({ AutoScroll: window.splide.Extensions.AutoScroll });
+            }
         }
+
+        window.addEventListener('load', initSplide);
+
+        window.addEventListener('resize', () => {
+            clearTimeout(window._splideResizeTimer);
+            window._splideResizeTimer = setTimeout(() => {
+                initSplide();
+            }, 300);
+        });
+
     </script>
 </body>
 
