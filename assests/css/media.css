@@ -13,11 +13,11 @@
 
   /* blog-wrapper */
 
-  .blog-wrapper .blog-wrap :first-child {
+  .blog-wrapper .blog-wrap :nth-child(1) {
     grid-column: 1/1;
   }
 
-  .blog-wrapper .blog-wrap :last-child {
+  .blog-wrapper .blog-wrap :nth-child(6) {
     grid-column: 3/3;
   }
 
@@ -55,11 +55,11 @@
     font-size: 40px;
   }
 
-  .blog-wrapper .blog-wrap :first-child {
+  .blog-wrapper .blog-wrap :nth-child(1) {
     grid-column: 1/1;
   }
 
-  .blog-wrapper .blog-wrap :last-child {
+  .blog-wrapper .blog-wrap :nth-child(6) {
     grid-column: 2;
   }
 
@@ -114,11 +114,11 @@
 
   /* blog-wrapper */
 
-  .blog-wrapper .blog-wrap :first-child {
+  .blog-wrapper .blog-wrap :nth-child(1) {
     grid-column: 1/1;
   }
 
-  .blog-wrapper .blog-wrap :last-child {
+  .blog-wrapper .blog-wrap :nth-child(6) {
     grid-column: 1/1;
   }
 

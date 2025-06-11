@@ -295,11 +295,11 @@ body {
   margin-bottom: 50px;
 }
 
-.blog-wrapper .blog-wrap :first-child {
+.blog-wrapper .blog-wrap :nth-child(1) {
   grid-column: 1/3;
 }
 
-.blog-wrapper .blog-wrap :last-child {
+.blog-wrapper .blog-wrap :nth-child(6) {
   grid-column: 3/5;
 }
 
@@ -469,4 +469,12 @@ body {
 
 .blog-thumb-card:hover .image-scroller-icone {
   opacity: 1;
+}
+
+/* All articles */
+
+.all-blog-title {
+  font-size: 60px;
+  text-align: center;
+  margin-block: 50px;
 }
