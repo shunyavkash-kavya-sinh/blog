@@ -238,10 +238,12 @@ body {
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
   transition: all 500ms ease-in-out;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .categories-content:hover {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.222);
 }
 
 .categories-title {
@@ -271,6 +273,24 @@ body {
 
 .categories-block:hover .categories-title-wrap {
   transform: translateY(-46%);
+}
+
+.categorie-img {
+  width: 30px;
+  height: 30px;
+}
+
+.categorie-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all 300ms ease-in-out;
+}
+
+.categories-block:hover .categorie-img img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7434%)
+    hue-rotate(43deg) brightness(124%) contrast(113%);
 }
 
 /* blog-wrapper */
