@@ -130,7 +130,6 @@ body {
   font-size: 12px;
   color: black;
   font-weight: 100;
-  margin-bottom: 8px;
   display: inline-block;
 }
 
@@ -139,8 +138,8 @@ body {
   line-height: 1.4;
   color: black;
   max-width: 470px;
-  margin-bottom: 8px;
-  font-weight: 500;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .card-label-img {
@@ -187,6 +186,7 @@ body {
   display: flex;
   justify-content: space-between;
   max-width: 214px;
+  margin-bottom: 15px;
 }
 
 .card-meta-wrap li {
@@ -215,7 +215,7 @@ body {
 }
 
 .categories-block {
-  height: 182px;
+  max-height: 182px;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -534,7 +534,7 @@ body {
   height: 700px;
   border-radius: 30px;
   overflow: hidden;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .blog-thumbnail-image img {
@@ -604,8 +604,8 @@ body {
 .profile-img {
   border-radius: 50%;
   overflow: hidden;
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
 }
 
 .profile-img img {
@@ -617,11 +617,12 @@ body {
 
 .profile-content {
   display: flex;
+  align-items: center;
   gap: 13px;
 }
 
 .profile-name {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.4;
   font-weight: 600;
   color: black;
@@ -696,7 +697,6 @@ body {
 
 .social-icons-block {
   width: 20%;
-  position: relative;
 }
 
 .icons-wrap {
@@ -723,11 +723,6 @@ body {
   object-position: center;
   filter: brightness(0) saturate(100%) invert(50%) sepia(7%) saturate(22%)
     hue-rotate(324deg) brightness(99%) contrast(87%);
-}
-
-.social-icons-wrap {
-  position: sticky;
-  top: 700px;
 }
 
 .blog-content-wrap ul {

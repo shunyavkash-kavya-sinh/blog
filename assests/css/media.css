@@ -41,10 +41,6 @@
   .blog-dec {
     width: 100%;
   }
-
-  .blog-thumbnail-image {
-    margin-bottom: 50px;
-  }
 }
 
 @media only screen and (max-width: 768px) {
