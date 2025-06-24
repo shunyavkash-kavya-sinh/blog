@@ -12,6 +12,9 @@
     <!-- splide css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <!-- css link -->
     <link rel="stylesheet" href="assests/css/style.css">
 
@@ -22,16 +25,16 @@
 
 <body>
     <main>
-        <h2 class="all-blog-title">All articles</h2>
+        <h2 class="all-blog-title" data-aos="fade-up">All articles</h2>
 
         <!-- business sec -->
         <section class="all-articles-wrapper">
             <div class="container">
-                <div class="fresh-blog-wrap">
+                <div class="fresh-blog-wrap" data-aos="fade-up">
                     <h2 class="blog-title">Business</h2>
                     <a href="javascript:void(0)" class="btn btn-primary">View All </a>
                 </div>
-                <div class="blog-wrap">
+                <div class="blog-wrap" data-aos="fade-up">
                     <div class="blog-card">
                         <a href="read-more.html">
                             <div class="blog-card-image-wrapper">
@@ -121,11 +124,11 @@
         <!-- technology sec -->
         <section class="blog-sec">
             <div class="container">
-                <div class="fresh-blog-wrap">
+                <div class="fresh-blog-wrap" data-aos="fade-up">
                     <h2 class="blog-title">Technology</h2>
                     <a href="javascript:void(0)" class="btn btn-primary">View All </a>
                 </div>
-                <div class="blog-wrap">
+                <div class="blog-wrap" data-aos="fade-up">
                     <div class="blog-card">
                         <a href="read-more.html">
                             <div class="blog-card-image-wrapper">
@@ -215,11 +218,11 @@
         <!-- automotive sec -->
         <section class="all-articles-wrapper">
             <div class="container">
-                <div class="fresh-blog-wrap">
+                <div class="fresh-blog-wrap" data-aos="fade-up">
                     <h2 class="blog-title">Automotive</h2>
                     <a href="javascript:void(0)" class="btn btn-primary">View All </a>
                 </div>
-                <div class="blog-wrap">
+                <div class="blog-wrap" data-aos="fade-up">
                     <div class="blog-card">
                         <a href="read-more.html">
                             <div class="blog-card-image-wrapper">
@@ -309,11 +312,11 @@
         <!-- science sec -->
         <section class="blog-wrapper">
             <div class="container">
-                <div class="fresh-blog-wrap">
+                <div class="fresh-blog-wrap" data-aos="fade-up">
                     <h2 class="blog-title">Science</h2>
                     <a href="javascript:void(0)" class="btn btn-primary">View All </a>
                 </div>
-                <div class="blog-wrap">
+                <div class="blog-wrap" data-aos="fade-up">
                     <div class="blog-card">
                         <a href="read-more.html">
                             <div class="blog-card-image-wrapper">
@@ -403,11 +406,11 @@
         <!-- work life sec -->
         <section class="blog-wrapper">
             <div class="container">
-                <div class="fresh-blog-wrap">
+                <div class="fresh-blog-wrap" data-aos="fade-up">
                     <h2 class="blog-title">Work Life</h2>
                     <a href="javascript:void(0)" class="btn btn-primary">View All </a>
                 </div>
-                <div class="blog-wrap">
+                <div class="blog-wrap" data-aos="fade-up">
                     <div class="blog-card">
                         <a href="read-more.html">
                             <div class="blog-card-image-wrapper">
@@ -497,7 +500,7 @@
         <!-- newsletter sec -->
         <section class="newsletter-sec">
             <div class="container">
-                <div class="newsletter-blog">
+                <div class="newsletter-blog" data-aos="fade-up">
                     <h2 class="newsletter-title">Subscribe our newsletter and Stay updated each week</h2>
                     <div class="richtext">
                         <p>
@@ -510,7 +513,7 @@
                         <input type="button" value="Submit Now" class="btn btn-secondary">
                     </form>
                 </div>
-                <div class="scroller-slider splide" aria-label="Basic Structure Example">
+                <div class="scroller-slider splide" aria-label="Basic Structure Example" data-aos="fade-up">
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
@@ -625,6 +628,9 @@
         </section>
     </main>
 
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
     <!-- splide-min js -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
@@ -633,58 +639,64 @@
         src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.4.2/dist/js/splide-extension-auto-scroll.min.js"></script>
 
     <script>
-        let scrollerSlider;
-
-        function initSplide() {
-            const sliderElement = document.querySelector('.scroller-slider');
-
+        const sliderElement = document.querySelector('.scroller-slider');
             if (sliderElement) {
-                if (scrollerSlider && scrollerSlider.destroy) {
-                    scrollerSlider.destroy(true);
+                let scrollerSlider;
+
+                function initSplide() {
+
+                    if (scrollerSlider && scrollerSlider.destroy) {
+                        scrollerSlider.destroy(true);
+                    }
+
+                    scrollerSlider = new Splide(sliderElement, {
+                        type: 'loop',
+                        drag: 'free',
+                        focus: 'center',
+                        perPage: 7,
+                        gap: "15px",
+                        arrows: false,
+                        pagination: false,
+                        autoScroll: false,
+                        breakpoints: {
+                            1024: {
+                                autoScroll: {
+                                    speed: 1,
+                                },
+                                perPage: 5,
+                                gap: "20px",
+                            },
+                            768: {
+                                perPage: 4,
+                            },
+                            557: {
+                                perPage: 3,
+                            },
+                            375: {
+                                perPage: 2,
+                            },
+                        },
+                    });
+
+                    scrollerSlider.mount({ AutoScroll: window.splide.Extensions.AutoScroll });
                 }
 
-                scrollerSlider = new Splide(sliderElement, {
-                    type: 'loop',
-                    drag: 'free',
-                    focus: 'center',
-                    perPage: 7,
-                    gap: "15px",
-                    arrows: false,
-                    pagination: false,
-                    autoScroll: false,
-                    breakpoints: {
-                        1024: {
-                            autoScroll: {
-                                speed: 1,
-                            },
-                            perPage: 5,
-                            gap: "20px",
-                        },
-                        768: {
-                            perPage: 4,
-                        },
-                        557: {
-                            perPage: 3,
-                        },
-                        375: {
-                            perPage: 2,
-                        },
-                    },
+
+                window.addEventListener('load', initSplide);
+
+                window.addEventListener('resize', () => {
+                    clearTimeout(window._splideResizeTimer);
+                    window._splideResizeTimer = setTimeout(() => {
+                        initSplide();
+                    }, 300);
                 });
-
-                scrollerSlider.mount({ AutoScroll: window.splide.Extensions.AutoScroll });
             }
-        }
 
-        window.addEventListener('load', initSplide);
-
-        window.addEventListener('resize', () => {
-            clearTimeout(window._splideResizeTimer);
-            window._splideResizeTimer = setTimeout(() => {
-                initSplide();
-            }, 300);
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
         });
-
     </script>
 </body>
 
